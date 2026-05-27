@@ -17,3 +17,9 @@ resource "azurerm_federated_identity_credential" "github_environment" {
   issuer   = "https://token.actions.githubusercontent.com"
   subject  = "repo:${var.github_organization}/${var.github_repository}:environment:${each.key}"
 }
+
+resource "azurerm_role_assignment" "terraform_subscription" {
+  scope                = data.azurerm_subscription.current.id
+  role_definition_name = var.role_definition_name
+  principal_id         = azurerm_user_assigned_identity.github_actions.principal_id
+}

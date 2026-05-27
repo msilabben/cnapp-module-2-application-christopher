@@ -61,8 +61,8 @@ jobs:
       - name: Set AKS context
         run: |
           az aks get-credentials \
-            --resource-group "$RESOURCE_GROUP" \
-            --name "$AKS_CLUSTER" \
+            --resource-group "${RESOURCE_GROUP}" \
+            --name "${AKS_CLUSTER}" \
             --overwrite-existing
 
       - name: Deploy images for app 
