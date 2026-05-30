@@ -18,6 +18,8 @@ jobs:
   docker-build:
     runs-on: ubuntu-latest
 
+    environment: dev
+
     permissions:
       contents: read
       packages: write
@@ -29,7 +31,7 @@ jobs:
       - name: Azure login using OIDC
         uses: azure/login@v2
         with:
-          client-id: ${{ vars.AZURE_CLIENT_ID }}
+          client-id: ${{ vars.AZURE_PUSH_CLIENT_ID }}
           tenant-id: ${{ vars.AZURE_TENANT_ID }}
           subscription-id: ${{ vars.AZURE_SUBSCRIPTION_ID }}
 
