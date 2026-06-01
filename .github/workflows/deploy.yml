@@ -36,14 +36,15 @@ jobs:
 
 
     env:
+      IMAGE_NAME_BACKEND: backend
+      IMAGE_NAME_FRONTEND: frontend
+      NAMESPACE: cnapp
       ARM_CLIENT_ID: ${{ vars.AZURE_DEPLOY_CLIENT_ID }}
       ARM_TENANT_ID: ${{ vars.AZURE_TENANT_ID }}
       ARM_SUBSCRIPTION_ID: ${{ vars.AZURE_SUBSCRIPTION_ID }}
       RESOURCE_GROUP: ${{ vars.AZURE_RESOURCE_GROUP }}
       AKS_CLUSTER: ${{ vars.AKS_CLUSTER }}
       ACR_NAME: ${{ vars.ACR_NAME }}
-      IMAGE_NAME_BACKEND: backend
-      IMAGE_NAME_FRONTEND: frontend
       FRONTEND_VERSION: ${{ inputs.frontend_image_version }}
       BACKEND_VERSION: ${{ inputs.backend_image_version }}
       AGFC_NAME: ${{ vars.AGFC_NAME }}
@@ -86,8 +87,8 @@ jobs:
             envsubst < "$manifest" | kubectl apply -f -
           done
       
-          kubectl rollout status deployment/backend --namespace cnapp --timeout=180s
-          kubectl rollout status deployment/frontend --namespace cnapp --timeout=180s
+          kubectl rollout status deployment/backend --namespace "$NAMESPACE" --timeout=180s
+          kubectl rollout status deployment/frontend --namespace "$NAMESPACE" --timeout=180s
 
       - name: Get App gw ID
         run: |
@@ -110,7 +111,7 @@ jobs:
           kind: Ingress
           metadata:
             name: cnapp-ingress
-            namespace: cnapp
+            namespace: $NAMESPACE
             annotations:
               alb.networking.azure.io/alb-id: $AGFC_ID
               alb.networking.azure.io/alb-frontend: $AGFC_FRONTEND_NAME
@@ -128,12 +129,12 @@ jobs:
                         number: 3000
           EOF
 
-          kubectl get ingress -n cnapp 
+          kubectl get ingress -n $NAMESPACE 
 
       - name: Curl test
         run: |
           kubectl run curl-test \
-            --namespace cnapp \
+            --namespace "$NAMESPACE" \
             --rm \
             --attach \
             --image=curlimages/curl \
