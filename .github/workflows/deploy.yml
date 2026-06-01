@@ -78,6 +78,8 @@ jobs:
 
         run: |
           set -euo pipefail
+          
+          echo "Deploying to tenant $ARM_TENANT_ID"
       
           export BACKEND_IMAGE="${ACR_NAME}.azurecr.io/${IMAGE_NAME_BACKEND}:${BACKEND_VERSION}"
           export FRONTEND_IMAGE="${ACR_NAME}.azurecr.io/${IMAGE_NAME_FRONTEND}:${FRONTEND_VERSION}"
