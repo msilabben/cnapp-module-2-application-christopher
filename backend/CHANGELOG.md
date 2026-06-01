@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.2.2](https://github.com/msilabben/cnapp-module-2-application/compare/backend@v0.2.1...backend@v0.2.2) (2026-06-01)
+
+
+### Bug Fixes
+
+* deliver secret ([ab4905e](https://github.com/msilabben/cnapp-module-2-application/commit/ab4905e126d9a7acaa22dbdace0817adda394a1a))
+* push images to both environment acr ([293a6fa](https://github.com/msilabben/cnapp-module-2-application/commit/293a6fa5b8d7277dc6fd9c045295393dbc50a21e))
+* rename secret ([e647bb4](https://github.com/msilabben/cnapp-module-2-application/commit/e647bb4fea20ee89489f1d6ab1d95561a6329bb0))
+
 ## [0.2.1](https://github.com/msilabben/cnapp-module-2-application/compare/backend@v0.2.0...backend@v0.2.1) (2026-05-30)
 
 
