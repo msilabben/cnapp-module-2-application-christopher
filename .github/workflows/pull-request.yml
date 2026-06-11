@@ -67,7 +67,7 @@ jobs:
             --volume "$PWD:/work" \
             --workdir /work \
             "${SEMGREP_IMAGE}" \
-            semgrep scan --sarif --sarif-output=semgrep_results.sarif
+            scan --sarif --sarif-output=semgrep_results.sarif
 
       - name: Upload Semgrep SARIF artifact
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
@@ -110,7 +110,7 @@ jobs:
             --volume "$PWD:/work" \
             --workdir /work \
             "${TRIVY_IMAGE}" \
-            trivy fs --format sarif -o trivy_results.sarif --scanners vuln,config,secret,license .
+            fs --format sarif --output trivy_results.sarif --scanners vuln,config,secret,license .
 
       - name: Upload Trivy SARIF artifact
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
@@ -157,7 +157,7 @@ jobs:
             --volume "$PWD:/work" \
             --workdir /work \
             "${CONFTEST_IMAGE}" \
-            conftest test semgrep-results/semgrep_results.sarif --parser json --policy policy/semgrep.rego
+            test semgrep-results/semgrep_results.sarif --parser json --policy policy/semgrep.rego
 
       - name: Verify Trivy findings
         run: |
@@ -165,4 +165,4 @@ jobs:
             --volume "$PWD:/work" \
             --workdir /work \
             "${CONFTEST_IMAGE}" \
-            conftest test trivy-results/trivy_results.sarif --parser json --policy policy/trivy.rego
+            test trivy-results/trivy_results.sarif --parser json --policy policy/trivy.rego
