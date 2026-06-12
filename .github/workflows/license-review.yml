@@ -33,12 +33,17 @@ jobs:
 
           chmod -R 777 "${ORT_RESULTS_DIR}"
 
+      - name: Prepare project permissions for ORT
+        run: |
+          chmod -R a+rwX frontend
+
       - name: Run ORT analyzer
         id: analyzer
         continue-on-error: true
         run: |
           docker run --rm \
             --volume "$PWD:/project" \
+            --volume "$PWD/ort-config:/home/ort/.ort/config:ro" \
             --volume "$PWD/${ORT_RESULTS_DIR}/analyzer:/out" \
             "${ORT_IMAGE}" \
             analyze \
@@ -53,6 +58,7 @@ jobs:
         run: |
           docker run --rm \
             --volume "$PWD:/project" \
+            --volume "$PWD/ort-config:/home/ort/.ort/config:ro" \
             --volume "$PWD/${ORT_RESULTS_DIR}/scanner:/out" \
             "${ORT_IMAGE}" \
             scan \
@@ -67,6 +73,7 @@ jobs:
         run: |
           docker run --rm \
             --volume "$PWD:/project" \
+            --volume "$PWD/ort-config:/home/ort/.ort/config:ro" \
             --volume "$PWD/${ORT_RESULTS_DIR}/evaluator:/out" \
             "${ORT_IMAGE}" \
             evaluate \
@@ -90,6 +97,7 @@ jobs:
 
           docker run --rm \
             --volume "$PWD:/project" \
+            --volume "$PWD/ort-config:/home/ort/.ort/config:ro" \
             --volume "$PWD/${ORT_RESULTS_DIR}/reporter:/out" \
             "${ORT_IMAGE}" \
             report \
