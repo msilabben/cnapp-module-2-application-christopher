@@ -108,9 +108,15 @@ jobs:
         run: |
           docker run --rm \
             --volume "$PWD:/work" \
+            --volume "$HOME/.cache/trivy:/root/.cache/trivy" \
             --workdir /work \
             "${TRIVY_IMAGE}" \
-            fs --format sarif --output trivy_results.sarif --scanners vuln,config,secret,license .
+            fs \
+            --format sarif \
+            --output trivy_results.sarif \
+            --scanners vuln,misconfig,license \
+            --include-dev-deps \
+            .
 
       - name: Upload Trivy SARIF artifact
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
