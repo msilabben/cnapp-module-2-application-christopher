@@ -1,4 +1,4 @@
-name: Publish
+name: Docker Build to GHCR
 
 on:
   workflow_call:
