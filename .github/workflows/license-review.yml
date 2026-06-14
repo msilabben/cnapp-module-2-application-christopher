@@ -57,6 +57,7 @@ jobs:
         continue-on-error: true
         run: |
           docker run --rm \
+            --env JAVA_TOOL_OPTIONS="-Xmx2g" \
             --volume "$PWD:/project" \
             --volume "$PWD/ort-config:/home/ort/.ort/config:ro" \
             --volume "$PWD/${ORT_RESULTS_DIR}/scanner:/out" \
