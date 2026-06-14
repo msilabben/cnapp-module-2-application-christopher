@@ -1,7 +1,7 @@
 package main
 
 config := {
-  "max_errors": 5,
+  "max_errors": 7,
   "error_level": "error",
 }
 
