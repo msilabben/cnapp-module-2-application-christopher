@@ -93,4 +93,6 @@ jobs:
       - name: Verify Trivy findings
         run: conftest test trivy-results/trivy_results.sarif --parser json --policy policy/trivy.rego
 
+      - name: Verify workflow container images
+        run: conftest test .github/workflows/main.yml --parser yaml --policy policy/registry.rego
  
