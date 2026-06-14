@@ -94,5 +94,5 @@ jobs:
         run: conftest test trivy-results/trivy_results.sarif --parser json --policy policy/trivy.rego
 
       - name: Verify workflow container images
-        run: conftest test .github/workflows/main.yml --parser yaml --policy policy/registry.rego
+        run: conftest test .github/workflows/pull-request.yml --parser yaml --policy policy/registry.rego
  
