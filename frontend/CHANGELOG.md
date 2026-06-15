@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.4.2](https://github.com/msilabben/cnapp-module-2-application-christopher/compare/frontend@v1.4.1...frontend@v1.4.2) (2026-06-15)
+
+
+### Bug Fixes
+
+* revert images for task ([8aad050](https://github.com/msilabben/cnapp-module-2-application-christopher/commit/8aad0509be4b6ee3867b338a5a345ba6d0c470c0))
+* use Docker Hardened Images ([b90e7c9](https://github.com/msilabben/cnapp-module-2-application-christopher/commit/b90e7c992a0c560b0d3977b1dc36d3685a4075d0))
+* use Docker Hardened Images ([d745a51](https://github.com/msilabben/cnapp-module-2-application-christopher/commit/d745a516ca58f4af6b355814508014c0cc960963))
+
 ## [1.4.1](https://github.com/msilabben/cnapp-module-2-application/compare/frontend@v1.4.0...frontend@v1.4.1) (2026-06-15)
 
 
