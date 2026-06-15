@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.3](https://github.com/msilabben/cnapp-module-2-application-christopher/compare/frontend@v1.4.2...frontend@v1.4.3) (2026-06-15)
+
+
+### Bug Fixes
+
+* limit npm and pip ([bd1d08e](https://github.com/msilabben/cnapp-module-2-application-christopher/commit/bd1d08e498f93e91f430d366c3e16f4025ce744f))
+
 ## [1.4.2](https://github.com/msilabben/cnapp-module-2-application-christopher/compare/frontend@v1.4.1...frontend@v1.4.2) (2026-06-15)
 
 
