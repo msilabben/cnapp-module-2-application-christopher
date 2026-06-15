@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.5.3](https://github.com/msilabben/cnapp-module-2-application-christopher/compare/backend@v0.5.2...backend@v0.5.3) (2026-06-15)
+
+
+### Bug Fixes
+
+* limit npm and pip ([bd1d08e](https://github.com/msilabben/cnapp-module-2-application-christopher/commit/bd1d08e498f93e91f430d366c3e16f4025ce744f))
+
 ## [0.5.2](https://github.com/msilabben/cnapp-module-2-application-christopher/compare/backend@v0.5.1...backend@v0.5.2) (2026-06-15)
 
 
