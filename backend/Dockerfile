@@ -22,12 +22,9 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1 \
     PATH="/app/.venv/bin:$PATH"
 
-COPY --from=builder /app /app
+COPY --from=builder --chown=10001:10001 /app /app
 
-RUN addgroup --system appgroup \
- && adduser --system --ingroup appgroup appuser
-
-USER appuser
+USER 10001:10001
 
 EXPOSE 8000
 

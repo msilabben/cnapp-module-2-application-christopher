@@ -10,23 +10,16 @@ RUN npm ci
 
 COPY . .
 
-RUN npm run build
-
 FROM dhi.io/node:20 AS runtime
 
 WORKDIR /app
 
 ENV NODE_ENV=production
 
-COPY --from=builder /app/package.json ./package.json
-COPY --from=builder /app/node_modules ./node_modules
-COPY --from=builder /app/dist ./dist
+COPY --from=builder --chown=10001:10001 /app /app
 
-RUN addgroup --system appgroup \
- && adduser --system --ingroup appgroup appuser
-
-USER appuser
+USER 10001:10001
 
 EXPOSE 3000
 
-CMD ["npm", "run", "preview", "--", "--host", "0.0.0.0", "--port", "3000"]
+CMD ["npm", "run", "dev", "--", "--host", "0.0.0.0", "--port", "3000"]
