@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.5.4](https://github.com/msilabben/cnapp-module-2-application-christopher/compare/backend@v0.5.3...backend@v0.5.4) (2026-06-16)
+
+
+### Bug Fixes
+
+* revert backend min days ([7134753](https://github.com/msilabben/cnapp-module-2-application-christopher/commit/7134753f185d32c66e17578360696c75a18a5c63))
+* test max age 365 ([a13cc00](https://github.com/msilabben/cnapp-module-2-application-christopher/commit/a13cc004361f51b78e5b058fa6f4be8cbe770211))
+
 ## [0.5.3](https://github.com/msilabben/cnapp-module-2-application-christopher/compare/backend@v0.5.2...backend@v0.5.3) (2026-06-15)
 
 

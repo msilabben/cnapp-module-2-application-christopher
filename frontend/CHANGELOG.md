@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.4.4](https://github.com/msilabben/cnapp-module-2-application-christopher/compare/frontend@v1.4.3...frontend@v1.4.4) (2026-06-16)
+
+
+### Bug Fixes
+
+* remove gpl ([d35ddf2](https://github.com/msilabben/cnapp-module-2-application-christopher/commit/d35ddf2582008caf16b6f29974107ac2ff3da75f))
+* revert max days ([256951c](https://github.com/msilabben/cnapp-module-2-application-christopher/commit/256951cb8c871572801276ed2e3bcfc072b2246f))
+* test max age 365 ([a13cc00](https://github.com/msilabben/cnapp-module-2-application-christopher/commit/a13cc004361f51b78e5b058fa6f4be8cbe770211))
+
 ## [1.4.3](https://github.com/msilabben/cnapp-module-2-application-christopher/compare/frontend@v1.4.2...frontend@v1.4.3) (2026-06-15)
 
 
